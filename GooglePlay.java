@@ -14,7 +14,7 @@ public class GooglePlay {
     }
     
     public int getNumeroUsuarios(){
-        return 0;
+        return usuarios.size();
     }
     
     public void addProducto(Producto producto){
@@ -27,6 +27,23 @@ public class GooglePlay {
     
     public double comprar(String nombreCuenta, String nombreProducto){
         double precio = -1;
+        for(Usuario usuarioActual : usuarios){
+            if(!nombreCuenta.equals(usuarioActual)){
+                precio = -1;
+            }
+
+        }
+        if(precio != -1){
+            for(Producto productoActual : productos){
+                if(nombreProducto.equals(productoActual)){
+                    precio = productoActual.getPrecio();
+                    productoActual.incrementarVecesComprado();
+                }
+                else{
+                    precio = -1;
+                }
+            }
+        }
         return precio;
     }
 }

@@ -17,12 +17,26 @@ public class Pelicula extends ProductoMultimedia
     }
     
     public String getCalidad(){
-        String resolucionHD = "";
+        if(resolucion == 1080){
+            resolucionHD = "FullHD";
+        }
+        else{
+            resolucionHD = "HD";
+        }
         return resolucionHD;
     }
     
     public double getPrecio(){
         double precio = 0;
+        if(getCalidad().equals("FullHD")){
+            precio = 10;
+        }
+        else{
+            precio = 5;
+        }
+        if(getAno() < 2000){
+            precio = (precio * 0.50);
+        }
         return precio;
     }
 }

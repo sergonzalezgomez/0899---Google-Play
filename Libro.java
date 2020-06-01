@@ -20,6 +20,7 @@ public class Libro extends ProductoMultimedia
     
     public double getPrecio(){
         double precio = 0;
+        precio = (numPaginas / 100) * (getAno() - 2010);
         return precio;
     }
 }
