@@ -23,5 +23,9 @@ public abstract class Producto
     public int getVecesComprado(){
         return vecesComprado;
     }
+    
+    public void vender() {
+        vecesComprado++;
+    }
 }
 
